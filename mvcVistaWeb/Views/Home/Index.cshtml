@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+
+    <div class="text-center">
+
+        <h1 class="display-5">Sistema de busqueda de usuarios sin AJAX</h1>
+        <form asp-controller="Home" asp-action="BuscarUsuarioSinAjax" method="post">
+
+            <input type="text" placeholder="Usuario ID" name="usuarioIdSinAjax" />
+            <input type="submit" value="Buscar" />
+
+        </form>
+
+
+        @{
+
+            if (ViewBag.usuario != null)
+            {
+
+                <p><h3>Usuario encontrado sin AJAX</h3></p>
+                <p><b>ID: </b>@ViewBag.usuario.id</p>
+                <p><b>Email: </b>@ViewBag.usuario.email</p>
+                <p><b>Direccion: </b>@ViewBag.usuario.direccion</p>
+                <p><b>Puntos: </b>@ViewBag.usuario.puntos</p>
+
+            }
+
+        }
+
+    </div>
+
+<div class="text-center">
+
+    <h1 class="display-5">Sistema de busqueda de usuarios con AJAX</h1>
+
+    <input type="text" placeholder="Usuario ID" id="usuarioIdConAjax" />
+    <button id="buscarUsuario">Buscar</button>
+
+    <div id="usuario"></div>
+
+</div>
